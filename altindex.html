@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiet Twitter</title>
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.1.2/css/bulma.min.css">
+</head>
+<body>
+
+<div class="section has-text-centered content">
+  <h1>Quiet Tweets</h1>
+  <p>A quick and dirty way to tweet without getting hit by the twitter firehose.</p>
+          <button type="button" class="button is-info">Sign in to Twitter</button>
+  <section class="section has-text-centered"> <!-- hero is-fullheight -->
+    <div class="columns">
+      <div class="column is-half is-offset-one-quarter">
+        <p class="control">
+          <textarea class="textarea twitter-post" type="text" placeholder="What's happening?"></textarea>
+        </p>
+  <!-- show when tweet above char limit -->
+  <!--  <p class="control">
+          <span class="help is-danger">Tweet is too long.</span>
+        </p> -->
+        <p class="control"> <!-- display tweet character count --> <span id="length">0</span> </p>
+        <p class="control">
+          <button type="button" class="button is-primary is-pulled-right">Post Tweet</button>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+  var text = document.querySelector(".twitter-post");
+  var output = document.querySelector("#length");
+  text.addEventListener("input", function() {
+    output.textContent = text.value.length;
+  });
+</script>
+
+</body>
+</html>
