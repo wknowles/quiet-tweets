@@ -44,6 +44,18 @@ angular.module('twitterApp.services', []).factory('twitterService', function($q)
             });
             //return the promise of the deferred object
             return deferred.promise;
+        },
+        getUser: function(){
+            var url='/1.1/account/settings.json';
+            var username = authorizationResult.get(url).done(function(data) { //https://dev.twitter.com/docs/api/1.1/get/statuses/home_timeline
+                //when the data is retrieved resolve the deferred object
+                        deferred.resolve(data);
+            }).fail(function(err) {
+               //in case of any error we reject the promise with the error object
+                deferred.reject(err);
+            });
+            //return the promise of the deferred object
+            return deferred.username;
         }
     }
 
